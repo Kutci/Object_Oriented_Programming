@@ -7,7 +7,7 @@ protected:
     char *gpuModel = nullptr;
     int power;
     int ram;
-    char peripherals[5][32];
+    char *peripherals[5];
     int peripheralsCount;
 
 public:
@@ -22,6 +22,8 @@ public:
     void setRam(int);
 
     void addPeripheral(const char *);
+
+    void swap(Computer &other);
 
     virtual void printType() const = 0;
     virtual void listPeripherals() const = 0;
