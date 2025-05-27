@@ -23,8 +23,6 @@ public:
 
     void addPeripheral(const char *);
 
-    void swap(Computer &other);
-
     virtual void printType() const = 0;
     virtual void listPeripherals() const = 0;
 
