@@ -127,7 +127,7 @@ void TechnoShop::saveToFile(const char *fileName) const
 
 void TechnoShop::loadFromFile(const char *fileName)
 {
-
+    char buffer[256];
     std::ifstream ifs(fileName);
     if (!ifs)
     {
@@ -135,20 +135,18 @@ void TechnoShop::loadFromFile(const char *fileName)
         return;
     }
 
-    free();
-    cap = 8;
-    count = 0;
-    devices = new Device *[cap];
-
-    char buffer[256];
-    ifs.getline(buffer, 256);
-    name = buffer;
-
+    MyString newName;
     unsigned n;
+    ifs.getline(buffer, 256);
+    newName = buffer;
+
     ifs >> n;
     ifs.ignore();
 
-    for (int i = 0; i < n; ++i)
+    TechnoShop tempShop;
+    tempShop.name = newName;
+
+    for (unsigned i = 0; i < n; ++i)
     {
         do
         {
@@ -161,18 +159,19 @@ void TechnoShop::loadFromFile(const char *fileName)
         Device *d = nullptr;
 
         if (strcmp(buffer, "Phone") == 0)
-        {
             d = new Phone();
-        }
         else if (strcmp(buffer, "Laptop") == 0)
-        {
             d = new Laptop();
-        }
 
         if (d)
         {
             d->readFromFile(ifs);
-            addDevice(d);
+            tempShop.addDevice(d);
         }
     }
+
+    std::swap(name, tempShop.name);
+    std::swap(count, tempShop.count);
+    std::swap(cap, tempShop.cap);
+    std::swap(devices, tempShop.devices);
 }
