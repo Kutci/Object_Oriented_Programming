@@ -14,7 +14,6 @@ int main()
     shop.addDevice(d2);
 
     std::cout << "--- Original Devices ---" << std::endl;
-    ;
     shop.printAll();
 
     shop.saveToFile("shop_data.txt");
@@ -22,12 +21,12 @@ int main()
     TechnoShop loadedShop;
     loadedShop.loadFromFile("shop_data.txt");
 
-    std::cout << "\n--- Loaded from File ---" << std::endl;
+    std::cout << "--- Loaded from File ---" << std::endl;
     loadedShop.printAll();
 
     loadedShop.removeDevice("Galaxy", "Samsung");
 
-    std::cout << "\n--- After Removal ---" << std::endl;
+    std::cout << "--- After Removal ---" << std::endl;
     loadedShop.printAll();
 
     return 0;
