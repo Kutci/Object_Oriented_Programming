@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "f:/Sofiiski programirane/Object_Oriented_Programming/week12/task1",
+      "program": "f:/Sofiiski programirane/Object_Oriented_Programming/week12/task1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
